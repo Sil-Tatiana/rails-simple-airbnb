@@ -1,0 +1,39 @@
+
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">SimpleAirbnb</a>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      </ul>
+      <form class="d-flex my-2">
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0 ms-2" type="submit">Search</button>
+        <button class="btn btn-outline-primary my-2 my-sm-0 ms-2" type="submit">Add</button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+<div class="container mt-3">
+  <h1 class="pb-4">All our Flats (<%= @flat.count %>)</h1>
+
+  <div class="row row-cols-1 row-cols-md-3 g-4">
+  <% @flat.each do |flat| %>
+  <div class="col">
+    <div class="card" style="width: 18rem;">
+      <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8MTR8fGhvdXNlc3xlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" class="card-img-top" alt="...">
+      <div class="card-body bg-light">
+        <h5 class="card-title"><%= flat.name %></h5>
+        <p class="card-text"><%= flat.address %></p>
+        <p class="card-text"><%= flat.description %></p>
+        <p class="card-text pb-2"><i class="fa-solid fa-user-group me-4"> <%= flat.number_of_guests %></i><i class="fa-solid fa-sterling-sign "></i><%= flat.price_per_night %></p>
+      </div>
+        <div class="flat-card-actions p-3">
+          <a href="#" class="card-link">More info</a>
+          <a href="#" class="card-link text-warning">Edit</a>
+          <a href="#" class="card-link text-danger">Remove</a>
+        </div>
+    </div>
+  </div>
+  <% end %>
+</div>
